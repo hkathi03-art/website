@@ -1,26 +1,24 @@
 # Predicting Student Academic Performance Using Publicly Available Educational Data
 
-This is a simple React + Vite frontend-only demo for an academic advising dashboard.
+Professional React + Vite frontend demo for advisor-facing student performance insights.
 
-It shows a beginner-friendly flow:
+## What this app does
 
-1. Landing page
-2. College list
-3. Course list
-4. Course detail with student grades and predicted outcomes
+- Provides a polished dashboard flow:
+  1. Landing
+  2. Colleges
+  3. Courses
+  4. Course detail
+- Includes exactly 3 colleges and exactly 2 courses per college.
+- Shows student coursework grades, predicted final result, and risk labels.
+- Uses Version 1 rules-based prediction with a professional UI.
+- Adds search + risk filter on the course detail screen.
 
-The prediction in this version is intentionally basic and rules-based.
+## Tech
 
-## What the app does
-
-- Displays the project title and a landing screen.
-- Shows exactly 3 colleges:
-  - Computer Science
-  - Engineering
-  - Business Administration
-- Shows exactly 2 courses per college.
-- Shows students, coursework grades, predicted final result, and risk label.
-- Uses a simple Version 1 prediction rule based only on coursework grade.
+- React + Vite
+- Frontend only (no backend)
+- Single local mock data file for easy updates
 
 ## Run locally
 
@@ -29,54 +27,39 @@ npm install
 npm run dev
 ```
 
-Then open the local URL shown in the terminal (usually `http://localhost:5173`).
+Open the local URL printed by Vite (typically `http://localhost:5173`).
 
-## File to edit data
+## Edit data (single source)
 
-All editable dashboard data is in:
+Use this file:
 
 - `src/data/dashboardData.js`
 
-You can update in one place:
+You can update:
 
-- project title/subtitle
+- project title/subtitle/notes
 - colleges
-- course names
-- student names
-- coursework grades (`A+`, `B`, `C`, `D`)
+- courses
+- students
+- coursework grade (`A+`, `B`, `C`, `D`)
 
-## Where prediction logic lives
-
-Prediction logic is in:
+## Prediction logic location
 
 - `src/utils/predictor.js`
 
-Current Version 1 rules:
+Rules in Version 1:
 
 - `A+` → `Likely A+ in final`
 - `B` → `Likely B in final`
 - `C` → `Likely C in final`
 - `D` → `At-risk / Likely D in final`
 
-## Beginner structure
+## Version 2 idea (documentation only)
 
-```text
-src/
-  components/
-  data/dashboardData.js
-  utils/predictor.js
-  App.jsx
-  main.jsx
-  styles.css
-```
+Add these student features:
 
-## Version 2 idea (future, documentation only)
+- `studyTime`
+- `absences`
+- `previousFailures`
 
-For a richer but still frontend-only future version:
-
-1. Add extra student fields in `dashboardData.js`:
-   - `studyTime`
-   - `absences`
-   - `previousFailures`
-2. Update predictor logic in `predictor.js` to use small weighted rules (not just grade mapping).
-3. Keep no backend for now, but improve advisor insights with richer indicators.
+Then replace simple mapping with weighted score rules while keeping frontend-only architecture.

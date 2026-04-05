@@ -1,13 +1,14 @@
-function CollegeList({ colleges, onSelectCollege, onBack }) {
+function CollegeList({ colleges, onSelectCollege }) {
   return (
     <section className="panel">
       <div className="section-header">
-        <p className="step-label">Step 2: Colleges</p>
-        <button className="secondary-btn" onClick={onBack}>
-          ← Back to Landing
-        </button>
+        <div>
+          <p className="step-label">Step 2</p>
+          <h2>Colleges</h2>
+          <p className="muted">Choose one college to continue.</p>
+        </div>
       </div>
-      <h2>Select a College</h2>
+
       <div className="card-grid">
         {colleges.map((college) => (
           <button
@@ -16,7 +17,7 @@ function CollegeList({ colleges, onSelectCollege, onBack }) {
             onClick={() => onSelectCollege(college)}
           >
             <h3>{college.name}</h3>
-            <p>{college.courses.length} courses available</p>
+            <p>{college.courses.length} courses</p>
           </button>
         ))}
       </div>
